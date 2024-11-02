@@ -1,34 +1,30 @@
 import React, { useState } from 'react'
 import Form from './One/Form'
-import Stundent from './One/Stundent'
+import People from './One/People'
+
 
 const App = () => {
-  const [students, setStudents] = useState([])
+  let [people,setPeople] = useState([])
 
-  let addNewMember = (memberInfo) => {
-    setStudents([...students, memberInfo])
+  let addNewMember = (menInfo) =>{
+      setPeople([...people,menInfo])
   }
 
-  let ContentSection = students.length < 1 ? <p className='bg-yellow-300 text-black p-2 rounded-md m-3'>Please Fill Yours Data!!!</p> : students.map((students) => {
-    return (
-      <Stundent name={students.name} key={students.live} live={students.live} />
+  let ContentSection = people.map((people)=>{
+    return(
+      <People name={people.name} live={people.live}  email={people.email} key={people.email}/>
     )
   })
 
   return (
-    <div>
-      {
+    <div className='bg-slate-200 max-h-full p-2'>
+      <Form addNewMember={addNewMember}/>
+       {
+        people.length < 1 ? <p className='p-3  ml-4 bg-yellow-400 max-w-[200px] text-center rounded-md'>Please Fill Valid Data!!</p> : 
+        ContentSection
+       }
 
-
-        <section className='flex' >
-          {
-            ContentSection
-          }
-        </section>
-
-
-      }
-      <Form addNewMember={addNewMember} />
+      
     </div>
   )
 }
