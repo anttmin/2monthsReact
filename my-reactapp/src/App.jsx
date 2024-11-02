@@ -20,7 +20,7 @@ const App = () => {
     <div className='bg-slate-200 max-h-full p-2'>
       <Form addNewMember={addNewMember}/>
        {
-        people.length < 1 ? <p className='p-3  ml-4 bg-yellow-400 max-w-[200px] text-center rounded-md'>Please Fill Valid Data!!</p> : 
+        people.length < 1 ? <p className='p-4  text-blue-400  ml-14 bg-white max-w-[250px] text-center rounded-md'>Add a new User Right Now!!</p> : 
         ContentSection
        }
 
